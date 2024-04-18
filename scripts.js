@@ -92,7 +92,10 @@ function displayPost(container, story) {
             <strong>Uploaded:</strong> ${postTime.toLocaleString()}<br>
             <strong>Comments:</strong> ${story.descendants}<br>
             <strong>Author:</strong> ${story.by}<br>
-            <button class="view-post-btn" onclick="window.open('${story.url}', '_blank')">View Post</button><br>
+            <div class="view-buttons">
+                <button class="view-post-btn" onclick="viewPost('${story.url}')">View Post</button><br>
+                <button class="view-post-btn" onclick="redirectToComments('${story.id}', '_blank')">View Comments</button><br>
+            </div>
         </div>
     `;
         container.appendChild(postItem);
@@ -104,6 +107,15 @@ function displayPost(container, story) {
             postDetails.style.display = postDetails.style.display === 'none' ? 'block' : 'none';
         });
     }
+}
+// Function to redirect to the comments section of the post
+function redirectToComments(postId) {
+    window.location.href = `https://news.ycombinator.com/item?id=${postId}`;
+
+}
+// Function to redirect to the post content
+function viewPost(postUrl) {
+    window.open(postUrl, '_blank');
 }
 
 askNotificationPermission(); // Ask for notification permission when the website loads

@@ -88,3 +88,7 @@ body {
 .view-post-btn:hover {
     background-color: #555;
 }
+.view-buttons {
+            display: flex;
+            gap:5px;
+        }
