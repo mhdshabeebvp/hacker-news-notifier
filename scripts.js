@@ -87,7 +87,7 @@ function displayPost(container, story) {
         const postTime = new Date(story.time * 1000);
         postItem.innerHTML = `
         <strong class="post-title">${story.title}</strong>
-        <div class="post-details">
+        <div class="post-details" style="display: none;">
             <br>
             <strong>Uploaded:</strong> ${postTime.toLocaleString()}<br>
             <strong>Comments:</strong> ${story.descendants}<br>
@@ -103,6 +103,11 @@ function displayPost(container, story) {
         // Add event listener to toggle post details
         const postTitle = postItem.querySelector('.post-title');
         postTitle.addEventListener('click', () => {
+            // Hide all post details first
+            const allPostDetails = document.querySelectorAll('.post-details');
+            allPostDetails.forEach(postDetails => {
+                postDetails.style.display = 'none';
+            });
             const postDetails = postItem.querySelector('.post-details');
             postDetails.style.display = postDetails.style.display === 'none' ? 'block' : 'none';
         });
