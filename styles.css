@@ -73,3 +73,18 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+.view-post-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.view-post-btn:hover {
+    background-color: #555;
+}

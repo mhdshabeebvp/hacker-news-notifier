@@ -41,7 +41,7 @@ async function fetchAndDisplayPosts(numPosts) {
         const latestNewsIds = data.slice(numPostsDisplayed, numPostsDisplayed + numPosts); // Get the latest news post IDs
 
         for (const storyId of latestNewsIds) {
-            if (!displayedPosts.includes(storyId)) { 
+            if (!displayedPosts.includes(storyId)) {
                 const storyResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`);
                 const story = await storyResponse.json();
 
@@ -92,7 +92,7 @@ function displayPost(container, story) {
             <strong>Uploaded:</strong> ${postTime.toLocaleString()}<br>
             <strong>Comments:</strong> ${story.descendants}<br>
             <strong>Author:</strong> ${story.by}<br>
-            <a href="${story.url}" target="_blank">View Post</a><br>
+            <button class="view-post-btn" onclick="window.open('${story.url}', '_blank')">View Post</button><br>
         </div>
     `;
         container.appendChild(postItem);
